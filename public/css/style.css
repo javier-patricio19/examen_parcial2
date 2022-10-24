@@ -1,0 +1,9 @@
+.img-mini{
+    width: 2rem;
+    height: 2rem;
+    background-image: url('imgs/img1.jpg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    border-radius: 50%;
+}

@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::get('/dashboard', [UsuariosController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/', [UsuariosController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/eliminar-usuario/{id}', [UsuariosController::class, 'eliminarUsuario'])->middleware(['auth', 'verified']);
+Route::get('/editar-usuario/{id}', [UsuariosController::class, 'editarUsuario'])->middleware(['auth', 'verified', 'admin']);
+
 
 require __DIR__.'/auth.php';

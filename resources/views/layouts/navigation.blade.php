@@ -37,7 +37,7 @@
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
-
+                            <p style="padding: 0 .8rem;">{{ Auth::user()->email }}</p>
                             <x-dropdown-link :href="route('logout')"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
@@ -46,6 +46,7 @@
                         </form>
                     </x-slot>
                 </x-dropdown>
+                <div class="img img-mini"></div>
             </div>
 
             <!-- Hamburger -->

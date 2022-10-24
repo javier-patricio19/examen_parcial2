@@ -49,7 +49,7 @@
                         </td>
                         @if ($usuario_actual->name == 'admin')
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                <a class="hover:text-gray-400" href="">Editar</a>
+                                <a class="hover:text-gray-400" href="/editar-usuario/{{$usuario->id}}">Editar</a>
                             </td>
                             <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                 <a class="hover:text-orange-400" href="/eliminar-usuario/{{$usuario->id}}">Eliminar</a>
