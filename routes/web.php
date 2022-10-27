@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ModificarUsuarioController;
 use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,6 +22,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [UsuariosController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::get('/eliminar-usuario/{id}', [UsuariosController::class, 'eliminarUsuario'])->middleware(['auth', 'verified']);
 Route::get('/editar-usuario/{id}', [UsuariosController::class, 'editarUsuario'])->middleware(['auth', 'verified', 'admin']);
+Route::post('/modificar-usuario/{user}', [ModificarUsuarioController::class, 'modificar'])->middleware(['auth', 'verified', 'admin'])->name('post.modificar');
 
 
 require __DIR__.'/auth.php';
