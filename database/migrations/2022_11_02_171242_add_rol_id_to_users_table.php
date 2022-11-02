@@ -14,7 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('rol_id')->nullable()->constrained('rols');
+            $table->foreignId('rol_id')
+                ->nullable()
+                ->default(1)
+                ->constrained('rols')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
         });
     }
 

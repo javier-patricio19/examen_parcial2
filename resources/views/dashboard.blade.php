@@ -64,7 +64,11 @@
                                     {{$usuario->email}}
                                 </td>
                                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
+                                    @if ($usuario->is_admin)
+                                    {{$roles[$usuario->rol_id]->type}} / Admin
+                                    @else
                                     {{$roles[$usuario->rol_id]->type}}
+                                    @endif
                                 </td>
                                 @if ($usuario_actual->is_admin)
                                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">

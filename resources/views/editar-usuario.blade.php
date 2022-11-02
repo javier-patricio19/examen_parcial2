@@ -41,6 +41,13 @@
                                 @endif
                                 @endforeach
                             </select>
+                            <label class="ml-4" for="is_admin">Administrador</label>
+                            @if ($usuario_editar->is_admin)
+                            <input checked type="checkbox" name="is_admin" id="is_admin">
+                            @else
+                            <input type="checkbox" name="is_admin" id="is_admin" value="true">
+                            @endif
+
                         </div>
                         <div class="flex items-center justify-start mt-4">
                             <x-primary-button>

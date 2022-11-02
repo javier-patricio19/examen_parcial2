@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Rol;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -20,8 +21,10 @@ class ModificarUsuarioController extends Controller
         $buscar_usuario->name = $request->name;
         $buscar_usuario->email = $request->email;
         $buscar_usuario->rol_id = $request->rol;
-        if ($request->rol == 1) {
+        if ($request->is_admin == 'true') {
             $buscar_usuario->is_admin = 1;
+        } else {
+            $buscar_usuario->is_admin = 0;
         }
         $buscar_usuario->save();
 
