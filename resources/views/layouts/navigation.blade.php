@@ -20,7 +20,7 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
-                <x-dropdown align="right" width="48">
+                <x-dropdown align="right">
                     <x-slot name="trigger">
                         <button class="flex items-center text-sm font-medium text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out">
                             <div>{{ Auth::user()->name }}</div>
@@ -46,7 +46,7 @@
                         </form>
                     </x-slot>
                 </x-dropdown>
-                <div class="img img-mini"></div>
+                <img class="w-10 h-10 rounded-full ml-4" src="{{ url('css/imgs/img1.jpg') }}" alt="">
             </div>
 
             <!-- Hamburger -->

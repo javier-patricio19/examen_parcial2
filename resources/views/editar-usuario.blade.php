@@ -29,12 +29,24 @@
                             <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" value="{{$usuario_editar->email}}" required />
 
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
-                            
-                            <div class="flex items-center justify-start mt-4">
-                                <x-primary-button>
-                                    Aceptar
-                                </x-primary-button>
-                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <label class="mr-4" for="rol">Rol:</label>
+                            <select name="rol" id="rol">
+                                @foreach ($roles as $rol)
+                                @if($rol->id == $usuario_editar->rol_id)
+                                <option selected value="{{$rol->id}}">{{$rol->type}}</option>
+                                @else
+                                <option value="{{$rol->id}}">{{$rol->type}}</option>
+                                @endif
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="flex items-center justify-start mt-4">
+                            <x-primary-button>
+                                Aceptar
+                            </x-primary-button>
+                            <a href="{{ route('dashboard') }}" class="ml-4 inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 hover:text-orange-400 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150">Cancelar</a>
                         </div>
                 </div>
             </div>

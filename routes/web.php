@@ -20,8 +20,8 @@ use Illuminate\Support\Facades\Route;
 // })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::get('/', [UsuariosController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('/eliminar-usuario/{id}', [UsuariosController::class, 'eliminarUsuario'])->middleware(['auth', 'verified']);
-Route::get('/editar-usuario/{id}', [UsuariosController::class, 'editarUsuario'])->middleware(['auth', 'verified', 'admin']);
+Route::get('/eliminar-usuario/{id}', [UsuariosController::class, 'eliminarUsuario'])->middleware(['auth', 'verified', 'admin'])->name('post.eliminar');
+Route::get('/editar-usuario/{id}', [UsuariosController::class, 'editarUsuario'])->middleware(['auth', 'verified', 'admin'])->name('post.editar');
 Route::post('/modificar-usuario/{user}', [ModificarUsuarioController::class, 'modificar'])->middleware(['auth', 'verified', 'admin'])->name('post.modificar');
 
 
