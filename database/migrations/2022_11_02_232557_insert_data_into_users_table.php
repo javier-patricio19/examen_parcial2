@@ -3,6 +3,8 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 return new class extends Migration
 {
@@ -14,12 +16,13 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('rol_id')
-                ->nullable()
-                ->default(1)
-                ->constrained('rols')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
+            User::create([
+                'name' => 'admin',
+                'email' => 'admin@gmail.com',
+                'password' => Hash::make('12345678'),
+                'is_admin' => '1',
+                'id_rol' => '1'
+            ]);
         });
     }
 
@@ -31,8 +34,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->dropForeign('users_rol_id_foreign');
-            $table->dropColumn('rol_id');
+            User::where('email', 'admin@gmail.com')->delete();
         });
     }
 };

@@ -20,7 +20,7 @@ class ModificarUsuarioController extends Controller
         $buscar_usuario = User::find($id);
         $buscar_usuario->name = $request->name;
         $buscar_usuario->email = $request->email;
-        $buscar_usuario->rol_id = $request->rol;
+        $buscar_usuario->id_rol = $request->rol;
         if ($request->is_admin == 'true') {
             $buscar_usuario->is_admin = 1;
         } else {

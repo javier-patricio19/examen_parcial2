@@ -34,7 +34,7 @@
                             <label class="mr-4" for="rol">Rol:</label>
                             <select name="rol" id="rol">
                                 @foreach ($roles as $rol)
-                                @if($rol->id == $usuario_editar->rol_id)
+                                @if($rol->id == $usuario_editar->id_rol)
                                 <option selected value="{{$rol->id}}">{{$rol->type}}</option>
                                 @else
                                 <option value="{{$rol->id}}">{{$rol->type}}</option>

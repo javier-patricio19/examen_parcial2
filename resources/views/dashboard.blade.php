@@ -65,17 +65,17 @@
                                 </td>
                                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
                                     @if ($usuario->is_admin)
-                                    {{$roles[$usuario->rol_id]->type}} / Admin
+                                    {{$roles[$usuario->id_rol]->type}} / Admin
                                     @else
-                                    {{$roles[$usuario->rol_id]->type}}
+                                    {{$roles[$usuario->id_rol]->type}}
                                     @endif
                                 </td>
                                 @if ($usuario_actual->is_admin)
                                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                    <a class="hover:text-gray-400" href="{{ route('post.editar', $usuario->id) }}">Editar</a>
+                                    <a class="hover:text-gray-400 font-bold" href="{{ route('post.editar', $usuario->id) }}">Editar</a>
                                 </td>
                                 <td class="text-sm text-gray-900 font-light px-6 py-4 whitespace-nowrap">
-                                    <a class="hover:text-orange-400" href="{{ route('post.eliminar', $usuario->id) }}">Eliminar</a>
+                                    <a class="hover:text-orange-400 font-bold" href="{{ route('post.eliminar', $usuario->id) }}">Eliminar</a>
                                 </td>
                                 @endif
                             </tr>
