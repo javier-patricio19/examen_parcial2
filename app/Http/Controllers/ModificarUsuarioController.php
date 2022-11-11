@@ -14,7 +14,7 @@ class ModificarUsuarioController extends Controller
 
         $request->validate([
             'name' => 'required|max:30',
-            'email' => "required|unique:users,email,$id|max:60"
+            'email' => "required|unique:users,email,$id|email|max:60"
         ]);
 
         $buscar_usuario = User::find($id);
