@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriasController;
 use App\Http\Controllers\ModificarUsuarioController;
 use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
@@ -15,9 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('categorias');
-})->middleware(['auth', 'verified'])->name('categorias');
+Route::get('/', [CategoriasController::class, 'index'])->middleware(['auth', 'verified'])->name('categorias');
+
+
+Route::get('/profesores', function () {
+    return view('profesores');
+})->middleware(['auth', 'verified'])->name('profesores');
+
+Route::get('/categoria/{tipo}', [UsuariosController::class, 'index'])->name('catagoria');
 
 Route::get('/dashboard', [UsuariosController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
