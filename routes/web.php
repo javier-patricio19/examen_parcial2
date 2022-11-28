@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/', [CategoriasController::class, 'index'])->name('index');
-    Route::get('/rol/{tipo}', [CategoriasController::class, 'roles'])->name('roles');
+    Route::get('/rol/{rol}', [CategoriasController::class, 'roles'])->name('roles');
     Route::get('/dashboard', [UsuariosController::class, 'index'])->name('dashboard');
 });
 

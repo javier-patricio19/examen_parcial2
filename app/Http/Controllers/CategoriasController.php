@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Rol;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CategoriasController extends Controller
@@ -13,8 +14,12 @@ class CategoriasController extends Controller
         $roles = Rol::all()->keyBy('id');
         return view('categorias', ['roles' => $roles]);
     }
-    public function roles($tipo)
+    public function roles(Rol $rol)
     {
-        return view('roles');
+        $usuarios = User::where('id_rol', $rol->id)->get();
+        return view('roles', [
+            'rol' => $rol,
+            'usuarios' => $usuarios
+        ]);
     }
 }

@@ -35,7 +35,7 @@
                 <x-carta.categoria 
                     imagen="{{ url('css/imgs/profe.png') }}" 
                     titulo="{{ $rol->type }}" 
-                    link="{{ route('roles', $rol->id) }}" 
+                    link="{{ route('roles', $rol) }}" 
                 />
                 @endforeach
                 
