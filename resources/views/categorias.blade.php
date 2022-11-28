@@ -32,7 +32,11 @@
         <div class="mx-auto max-w-2xl px-4 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
             <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                 @foreach ($roles as $rol)
-                <x-carta.categoria imagen="{{ url('css/imgs/profe.png') }}" titulo="{{ $rol->type }}" link="{{ route("categoria", $rol->type) }}" />
+                <x-carta.categoria 
+                    imagen="{{ url('css/imgs/profe.png') }}" 
+                    titulo="{{ $rol->type }}" 
+                    link="{{ route('roles', $rol->id) }}" 
+                />
                 @endforeach
                 
             </div>

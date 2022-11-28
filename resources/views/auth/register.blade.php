@@ -46,6 +46,15 @@
                 <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
             </div>
 
+            {{-- foto perfil --}}
+            <div class="mt-4">
+                <x-input-label for="foto_pefil" :value="__('Foto de Perfil (Opcional)')" />
+
+                <x-text-input id="foto_pefil" class="block mt-1 w-full" type="file" name="foto_pefil" />
+
+                <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+            </div>
+
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
                     {{ __('Already registered?') }}

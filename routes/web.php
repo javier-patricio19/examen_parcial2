@@ -16,20 +16,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [CategoriasController::class, 'index'])->middleware(['auth', 'verified'])->name('categorias');
 
+Route::middleware(['auth', 'verified', 'admin'])->group(function () {
+    Route::get('/', [CategoriasController::class, 'index'])->name('index');
+    Route::get('/rol/{tipo}', [CategoriasController::class, 'roles'])->name('roles');
+    Route::get('/dashboard', [UsuariosController::class, 'index'])->name('dashboard');
+});
 
-Route::get('/profesores', function () {
-    return view('profesores');
-})->middleware(['auth', 'verified'])->name('profesores');
-
-Route::get('/categoria/{tipo}', [UsuariosController::class, 'index'])->name('catagoria');
-
-Route::get('/dashboard', [UsuariosController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('/eliminar-usuario/{id}', [UsuariosController::class, 'eliminarUsuario'])->middleware(['auth', 'verified', 'admin'])->name('post.eliminar');
-Route::get('/editar-usuario/{id}', [UsuariosController::class, 'editarUsuario'])->middleware(['auth', 'verified', 'admin'])->name('post.editar');
-Route::post('/modificar-usuario/{user}', [ModificarUsuarioController::class, 'modificar'])->middleware(['auth', 'verified', 'admin'])->name('post.modificar');
-
+Route::middleware(['auth', 'verified', 'admin'])->group(function () {
+    Route::post('/modificar-usuario/{user}', [ModificarUsuarioController::class, 'modificar'])->name('post.modificar');
+    Route::get('/editar-usuario/{id}', [UsuariosController::class, 'editarUsuario'])->name('post.editar');
+    Route::get('/eliminar-usuario/{id}', [UsuariosController::class, 'eliminarUsuario'])->name('post.eliminar');
+});
 
 require __DIR__ . '/auth.php';

@@ -11,8 +11,10 @@ class CategoriasController extends Controller
     public function index()
     {
         $roles = Rol::all()->keyBy('id');
-        return view('categorias', [
-            'roles' => $roles
-        ]);
+        return view('categorias', ['roles' => $roles]);
+    }
+    public function roles($tipo)
+    {
+        return view('roles');
     }
 }

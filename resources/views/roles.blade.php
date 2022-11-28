@@ -63,7 +63,7 @@
         <div class="grid-cols-3 grid gap-4 mt-10 lg:mr-10 lg:w-1/2 lg:right-4">
             @foreach (range(0, 10) as $i)
                 <div class="">
-                    <x-carta.categoria imagen="{{ url('css/imgs/profe.png') }}" titulo="Profesores" link="{{ route('profesores') }}" />
+                    <x-carta.categoria imagen="{{ url('css/imgs/profe.png') }}" titulo="Profesores" link="" />
                 </div>
             @endforeach
         </div>
