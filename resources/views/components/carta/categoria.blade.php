@@ -12,4 +12,9 @@
             </h3>
         </div>
     </div>
+    
+    <div class="w-full flex flex-row">
+        <a href="" class="block w-full h-8 text-center bg-slate-600 hover:bg-slate-300">Editar</a>
+        <a href="" class="block w-full text-center bg-slate-600 hover:bg-slate-300">Eliminar</a>
+    </div>
 </div>
