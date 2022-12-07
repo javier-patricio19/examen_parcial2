@@ -7,14 +7,16 @@ use Illuminate\View\Component;
 class Registro extends Component
 {
     public $titulo;
+    public $rolId;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($titulo = null)
+    public function __construct($titulo = null, $rolId)
     {
         $this->titulo = $titulo;
+        $this->rolId = $rolId;
     }
 
     /**

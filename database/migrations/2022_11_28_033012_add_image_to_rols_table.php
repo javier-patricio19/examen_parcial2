@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('rols', function (Blueprint $table) {
             //
-            $table->string('image')->default('/imagenes/rol_default.png');
+            $table->string('image')->default('/imagenes/usuario_default.jpg');
         });
     }
 

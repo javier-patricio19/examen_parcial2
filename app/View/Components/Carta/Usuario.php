@@ -4,23 +4,29 @@ namespace App\View\Components\Carta;
 
 use Illuminate\View\Component;
 
-class Categoria extends Component
+class Usuario extends Component
 {
     public $titulo;
-    public $rolId;
     public $imagen;
     public $link;
+    public $modificable;
+    public $linkEditar;
+    public $linkEliminar;
+    public $isAdmin;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct($titulo, $rolId, $imagen, $link = "")
+    public function __construct($titulo, $imagen, $link = "", $modificable = false, $linkEditar = "", $linkEliminar = "", $isAdmin = false)
     {
         $this->titulo = $titulo;
-        $this->rolId = $rolId;
         $this->imagen = $imagen;
         $this->link = $link;
+        $this->modificable = $modificable;
+        $this->linkEditar = $linkEditar;
+        $this->linkEliminar = $linkEliminar;
+        $this->isAdmin = $isAdmin;
     }
 
     /**
@@ -30,6 +36,6 @@ class Categoria extends Component
      */
     public function render()
     {
-        return view('components.carta.categoria');
+        return view('components.carta.usuario');
     }
 }
