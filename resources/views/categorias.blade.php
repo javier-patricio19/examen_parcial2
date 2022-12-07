@@ -1,8 +1,8 @@
 <x-app-layout>
     <x-slot name="header">
-        <h1 class="font-semibold text-3xl text-gray-800 leading-tight">
-            Categorias Usuarios
-        </h1>
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            Productos
+        </h2>
     </x-slot>
     @if (session('success'))
         <script>
@@ -28,13 +28,14 @@
             })
         </script>
     @endif
-    <div class="h-screen bg-white">
+    <div class="bg-white">
         <div class="mx-auto max-w-2xl px-4 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
-            <div class="flex flex-row flex-wrap">
+            <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
                 @foreach ($roles as $rol)
                     <x-carta.categoria imagen="{{ url('css/imgs/profe.png') }}" titulo="{{ $rol->type }}"
                         link="{{ route('roles', $rol) }}" />
                 @endforeach
+
             </div>
         </div>
     </div>
