@@ -1,44 +1,40 @@
 <x-app-layout>
     <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            Productos
-        </h2>
+        <h1 class="font-semibold text-3xl text-gray-800 leading-tight">
+            Categorias Usuarios
+        </h1>
     </x-slot>
-    @if(session('success'))
-    <script>
-        let msg = "{{session('success')}}";
-        Swal.fire({
-            position: 'top',
-            icon: 'success',
-            title: msg,
-            showConfirmButton: false,
-            timer: 2000
-        })
-    </script>
+    @if (session('success'))
+        <script>
+            let msg = "{{ session('success') }}";
+            Swal.fire({
+                position: 'top',
+                icon: 'success',
+                title: msg,
+                showConfirmButton: false,
+                timer: 2000
+            })
+        </script>
     @endif
-    @if(session('error'))
-    <script>
-        let msg = "{{session('error')}} ";
-        Swal.fire({
-            position: 'top',
-            icon: 'error',
-            title: msg,
-            showConfirmButton: false,
-            timer: 2000
-        })
-    </script>
+    @if (session('error'))
+        <script>
+            let msg = "{{ session('error') }} ";
+            Swal.fire({
+                position: 'top',
+                icon: 'error',
+                title: msg,
+                showConfirmButton: false,
+                timer: 2000
+            })
+        </script>
     @endif
-    <div class="bg-white">
+    <div class="h-screen bg-white">
         <div class="mx-auto max-w-2xl px-4 sm:py-4 sm:px-6 lg:max-w-7xl lg:px-8">
-            <div class="mt-6 grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
+            <div class="flex flex-row flex-wrap">
                 @foreach ($roles as $rol)
-                <x-carta.categoria 
-                    imagen="{{ url('css/imgs/profe.png') }}" 
-                    titulo="{{ $rol->type }}" 
-                    link="{{ route('roles', $rol) }}" 
-                />
+                    <x-carta.categoria imagen="{{ url('css/imgs/profe.png') }}" titulo="{{ $rol->type }}"
+                        rol-id="{{ $rol->id }}" link="{{ route('roles', $rol) }}" />
                 @endforeach
-                
             </div>
         </div>
     </div>

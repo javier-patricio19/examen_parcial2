@@ -34,4 +34,10 @@ class UsuariosController extends Controller
         $roles = Rol::all()->keyBy('id');
         return view('editar-usuario', ['usuario_editar' => $usuario_editar, 'roles' => $roles]);
     }
+    public function editarCuenta(Request $request)
+    {
+        $usuario_editar = Auth::user();
+        $roles = Rol::all()->keyBy('id');
+        return view('mi-cuenta', ['usuario_editar' => $usuario_editar, 'roles' => $roles]);
+    }
 }
