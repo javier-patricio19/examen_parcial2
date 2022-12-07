@@ -33,7 +33,7 @@
             <div class="flex flex-row flex-wrap">
                 @foreach ($roles as $rol)
                     <x-carta.categoria imagen="{{ url('css/imgs/profe.png') }}" titulo="{{ $rol->type }}"
-                        rol-id="{{ $rol->id }}" link="{{ route('roles', $rol) }}" />
+                        link="{{ route('roles', $rol) }}" />
                 @endforeach
             </div>
         </div>

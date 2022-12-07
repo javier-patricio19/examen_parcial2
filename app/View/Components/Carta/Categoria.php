@@ -7,7 +7,6 @@ use Illuminate\View\Component;
 class Categoria extends Component
 {
     public $titulo;
-    public $rolId;
     public $imagen;
     public $link;
     /**
@@ -15,10 +14,9 @@ class Categoria extends Component
      *
      * @return void
      */
-    public function __construct($titulo, $rolId, $imagen, $link = "")
+    public function __construct($titulo, $imagen, $link)
     {
         $this->titulo = $titulo;
-        $this->rolId = $rolId;
         $this->imagen = $imagen;
         $this->link = $link;
     }

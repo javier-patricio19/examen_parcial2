@@ -14,7 +14,6 @@ class CategoriasController extends Controller
         $roles = Rol::all()->keyBy('id');
         return view('categorias', ['roles' => $roles]);
     }
-
     public function roles(Rol $rol)
     {
         $usuarios = User::where('id_rol', $rol->id)->get();
@@ -22,11 +21,5 @@ class CategoriasController extends Controller
             'rol' => $rol,
             'usuarios' => $usuarios
         ]);
-    }
-
-    public function modificarIndex($id)
-    {
-        $categoria = Rol::find($id);
-        return view('editar-categoria', ['categoria' => $categoria]);
     }
 }
